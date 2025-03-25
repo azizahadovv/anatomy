@@ -1,68 +1,76 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.sklet {
+  position: relative;
+  width: 400px;
+  height:100vh;
+  background-color: #e5e7eb;
+  border: 1px solid #d1d5db;
   display: flex;
-  place-items: center;
-  min-width: 320px;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   min-height: 100vh;
+  background-color: #f3f4f6;
+  padding: 1rem;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.text-rodal{
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 1rem;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.button {
+  background-color: #3b82f6;
+  color: white;
+  padding:  13px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease-in-out;
+  position: absolute;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.button:hover {
+  background-color: #1d4ed8;
 }
+
+.button1 { top: 20px; left: 50%; transform: translateX(-50%); }
+
+.button2 { top: 150px; left: 100px; }
+
+.button3 { top: 150px; right: 100px; }
+
+.button4 { top: 250px; left: 50%; transform: translateX(-50%); }
+
+.button5 { top: 270px; left: 70px; }
+
+.button6 { top: 270px; right: 70px; }
+
+.button7 { top: 190px; left: 60%; transform: translateX(-50%); }
+
+.button8 { top: 420px; left: 30px; }
+
+.button9 { top: 420px; right: 30px; }
+
+.button10 { bottom: 450px; left: 50%; transform: translateX(-50%); }
+
+.button11 { bottom: 240px; left: 140px; }
+
+.button12 { bottom: 240px; right: 140px; }
+
+.button13 { bottom: 20px; left: 50%; transform: translateX(-50%); }
+
+
