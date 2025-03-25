@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Rodal from "rodal";
 import "rodal/lib/rodal.css";
 import image from "./assets/image.png";
+import aud from "./assets/audio.mp3";
 
 const questions = [
   { id: 1, savol: "Odam Skleti nechta suyakdan tashkil topgan ?" },
@@ -19,44 +20,48 @@ const questions = [
   { id: 13, savol: "Suyakning vazifalari va uning joylashuvi." }
 ];
 
-
 const App = () => {
   const [visible, setVisible] = useState(false);
   const [selectedQuestion, setSelectedQuestion] = useState("");
   const [Ids, setIds] = useState("");
+  const audioRef = useRef(null);
+
+ 
+    const playAudio = () => {
+      if (audioRef.current) {
+        audioRef.current.play().catch(error => {
+          console.warn("Autoplay bloklandi: ", error);
+        });
+      }
+    };
+
 
   const handleButtonClick = (id) => {
     const question = questions.find(q => q.id === id)?.savol || "Savol topilmadi";
     setIds(id);
     setSelectedQuestion(question);
     setVisible(true);
+    playAudio();
   };
 
   return (
     <div className="container">
+      <audio hidden ref={audioRef} src={aud} autoPlay controls loop></audio>
       <div className="sklet">
         <img src={image} alt="Skeleton" className="sklet" />
-        <button onClick={() => handleButtonClick(1)} className="button button1">1</button>
-        <button onClick={() => handleButtonClick(2)} className="button button2">2</button>
-        <button onClick={() => handleButtonClick(3)} className="button button3">3</button>
-        <button onClick={() => handleButtonClick(4)} className="button button4">4</button>
-        <button onClick={() => handleButtonClick(5)} className="button button5">5</button>
-        <button onClick={() => handleButtonClick(6)} className="button button6">6</button>
-        <button onClick={() => handleButtonClick(7)} className="button button7">7</button>
-        <button onClick={() => handleButtonClick(8)} className="button button8">8</button>
-        <button onClick={() => handleButtonClick(9)} className="button button9">9</button>
-        <button onClick={() => handleButtonClick(10)} className="button button10">10</button>
-        <button onClick={() => handleButtonClick(11)} className="button button11">11</button>
-        <button onClick={() => handleButtonClick(12)} className="button button12">12</button>
-        <button onClick={() => handleButtonClick(13)} className="button button13">13</button>
+        {questions.map(({ id }) => (
+          <button key={id} onClick={() => handleButtonClick(id)} className={`button button${id}`}>
+            {id}
+          </button>
+        ))}
       </div>
-
 
       <Rodal visible={visible} onClose={() => setVisible(false)} height={150} width={300}>
         <div className="text-rodal">
-          <h3>{Ids + '-savol \n'} </h3>
+          <h3>{Ids + '-savol \n'}</h3>
           <br />
-          {selectedQuestion}</div>
+          {selectedQuestion}
+        </div>
       </Rodal>
     </div>
   );

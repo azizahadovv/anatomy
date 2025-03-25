@@ -7,7 +7,7 @@
 .sklet {
   position: relative;
   width: 400px;
-  height:100vh;
+  height: 100vh;
   background-color: #e5e7eb;
   border: 1px solid #d1d5db;
   display: flex;
@@ -17,7 +17,7 @@
 
 .container {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: ; */
   align-items: center;
   justify-content: center;
   min-height: 100vh;
@@ -25,16 +25,27 @@
   padding: 1rem;
 }
 
-.text-rodal{
+.text-rodal {
   font-size: 20px;
   font-weight: 400;
   margin-bottom: 1rem;
 }
 
+
+
+audio {
+  width: 300px;
+  height: 54px;
+}
+
+audio:not([controls]) {
+  display: none !important;
+}
+
 .button {
   background-color: #3b82f6;
   color: white;
-  padding:  13px;
+  padding: 13px;
   border-radius: 4px;
   font-size: 12px;
   font-weight: bold;
@@ -47,30 +58,72 @@
   background-color: #1d4ed8;
 }
 
-.button1 { top: 20px; left: 50%; transform: translateX(-50%); }
+.button1 {
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
-.button2 { top: 150px; left: 100px; }
+.button2 {
+  top: 150px;
+  left: 100px;
+}
 
-.button3 { top: 150px; right: 100px; }
+.button3 {
+  top: 150px;
+  right: 100px;
+}
 
-.button4 { top: 250px; left: 50%; transform: translateX(-50%); }
+.button4 {
+  top: 250px;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
-.button5 { top: 270px; left: 70px; }
+.button5 {
+  top: 270px;
+  left: 70px;
+}
 
-.button6 { top: 270px; right: 70px; }
+.button6 {
+  top: 270px;
+  right: 70px;
+}
 
-.button7 { top: 190px; left: 60%; transform: translateX(-50%); }
+.button7 {
+  top: 190px;
+  left: 60%;
+  transform: translateX(-50%);
+}
 
-.button8 { top: 420px; left: 30px; }
+.button8 {
+  top: 420px;
+  left: 30px;
+}
 
-.button9 { top: 420px; right: 30px; }
+.button9 {
+  top: 420px;
+  right: 30px;
+}
 
-.button10 { bottom: 450px; left: 50%; transform: translateX(-50%); }
+.button10 {
+  bottom: 450px;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
-.button11 { bottom: 240px; left: 140px; }
+.button11 {
+  bottom: 240px;
+  left: 140px;
+}
 
-.button12 { bottom: 240px; right: 140px; }
+.button12 {
+  bottom: 240px;
+  right: 140px;
+}
 
-.button13 { bottom: 20px; left: 50%; transform: translateX(-50%); }
-
-
+.button13 {
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
