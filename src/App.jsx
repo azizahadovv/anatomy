@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import Rodal from "rodal";
 import "rodal/lib/rodal.css";
 import image from "./assets/image.png";
@@ -25,16 +25,22 @@ const App = () => {
   const [selectedQuestion, setSelectedQuestion] = useState("");
   const [Ids, setIds] = useState("");
   const audioRef = useRef(null);
+  const audioTimeoutRef = useRef(null);
 
- 
-    const playAudio = () => {
-      if (audioRef.current) {
-        audioRef.current.play().catch(error => {
-          console.warn("Autoplay bloklandi: ", error);
-        });
-      }
-    };
+  const playAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0; // Audio boshidan boshlanadi
+      audioRef.current.play().catch(error => {
+        console.warn("Autoplay bloklandi: ", error);
+      });
 
+      // Har 10 sekunddan keyin qayta ishlash uchun timeout
+      clearTimeout(audioTimeoutRef.current);
+      audioTimeoutRef.current = setTimeout(() => {
+        playAudio();
+      }, 10000);
+    }
+  };
 
   const handleButtonClick = (id) => {
     const question = questions.find(q => q.id === id)?.savol || "Savol topilmadi";
@@ -46,7 +52,9 @@ const App = () => {
 
   return (
     <div className="container">
-      <audio hidden ref={audioRef} src={aud} autoPlay controls loop></audio>
+      {/* Loop o'chirildi */}
+      <audio hidden ref={audioRef} src={aud}></audio>
+
       <div className="sklet">
         <img src={image} alt="Skeleton" className="sklet" />
         {questions.map(({ id }) => (
@@ -58,7 +66,7 @@ const App = () => {
 
       <Rodal visible={visible} onClose={() => setVisible(false)} height={150} width={300}>
         <div className="text-rodal">
-          <h3>{Ids + '-savol \n'}</h3>
+          <h3>{Ids + "-savol \n"}</h3>
           <br />
           {selectedQuestion}
         </div>
